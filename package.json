@@ -27,7 +27,6 @@
     "babel-preset-stage-2": "^6.24.1",
     "eslint": "^5.6.1",
     "express": "^4.16.3",
-    "nodemon": "^1.18.4"
     "nodemon": "^1.18.4",
     "pg": "^7.5.0",
     "sequelize": "^4.39.0"

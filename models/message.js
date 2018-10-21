@@ -32,8 +32,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Message.associate = function(models) {
     // associations can be defined here
-    Message.hasOne(models.Contact, {foreignKey: 'id', as: 'sender'});
-    Message.hasOne(models.Contact, {foreignKey: 'id', as: 'receiver'});
+    // Message.hasOne(models.Contact, { foreignKey: 'id', as: 'sender' });
+    // Message.hasOne(models.Contact, { foreignKey: 'id', as: 'receiver' });
+    Message.belongsTo(models.Contact, { foreignKey: 'id', as: 'senderId' });
+    Message.belongsTo(models.Contact, { foreignKey: 'id', as: 'receiverId' });
   };
   return Message;
 };
