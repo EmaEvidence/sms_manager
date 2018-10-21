@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   Contact.associate = function(models) {
-    Contact.hasMany(models.Message, {foreignKey: 'sender', sourceKey: 'id'}, {onDelete: 'DELETE'});
-    Contact.hasMany(models.Message, {foreignKey: 'receiver', sourceKey: 'id'}, { onDelete: 'SET NULL' });
+    Contact.hasMany(models.Message, { foreignKey: 'sender', sourceKey: 'id' }, { onDelete: 'DELETE' });
+    Contact.hasMany(models.Message, { foreignKey: 'receiver', sourceKey: 'id' }, { onDelete: 'SET NULL' });
   };
   return Contact;
 };
