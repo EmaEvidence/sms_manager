@@ -17,35 +17,23 @@ module.exports = {
           }
         }
       },
-      sender: {
+      senderId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Contacts',
           key: 'id',
-          as: 'sender',
+          as: 'sent',
         },
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: 'Sender can not be empty'
-          }
-        }
+        onDelete: 'cascade'
       },
-      receiver: {
+      receiverId: {
         type: Sequelize.INTEGER,
-        allowNull: true,
         references: {
           model: 'Contacts',
           key: 'id',
-          as: 'receiver',
+          as: 'received',
         },
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: 'Receiver can not be empty'
-          }
-        }
+        onDelete: 'set null'
       },
       status: {
         type: Sequelize.STRING,
