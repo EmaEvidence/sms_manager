@@ -21,6 +21,28 @@ class ContactService {
     return db.Contact.findAll({ where: data })
   }
 
+  getSentMessages(data) {
+    return db.Contact.findAll({
+      include: [{
+        association: 'sent',
+      }],
+      where: {
+        phoneNumber: data
+      }
+    });
+  }
+
+  getSReceivedMessages(data) {
+    return db.Contact.findAll({
+      include: [{
+        association: 'received',
+      }],
+      where: {
+        phoneNumber: data
+      }
+    });
+  }
+
 };
 
 export default ContactService;
