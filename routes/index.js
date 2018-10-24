@@ -17,15 +17,15 @@ Route.get('/', (req, res) => {
   }).status(200);
 });
 
-Route.post('/addContact', validator.contact, contact.add);
+Route.post('/contact', validator.contact, contact.add);
 
-Route.get('/getAll', contact.getAll);
+Route.get('/contacts', contact.getAll);
 
-Route.get('/getContact/:phoneNumber', validator.phone, contact.get);
+Route.get('/contact/:phoneNumber', validator.phone, contact.get);
 
-Route.get('/sentMessages/:phoneNumber', validator.phone, contact.getAllSentByContact);
+Route.get('/messages/sent/:phoneNumber', validator.phone, contact.getAllSentByContact);
 
-Route.get('/receivedMessages/:phoneNumber', validator.phone, contact.getAllReceivedByContact);
+Route.get('/messages/received/:phoneNumber', validator.phone, contact.getAllReceivedByContact);
 
 Route.post('/message', validator.message, checkReceiver, checkSender, message.add);
 
