@@ -59,11 +59,40 @@ class Contact {
       }
       return handleResponse(res, 200, 'Contact deleted');
     })
-    .catch(() => {
+    .catch((error) => {
       return handleResponse(res, 500, 'Error deleting Contact');
     });
   }
 
+  getAllSentByContact(req, res) {
+    const { phoneNumber } = req.params;
+    contactService.getSentMessages(phoneNumber).
+      then((response) => {
+        if (response.length === 0) {
+          return handleResponse(res, 404, 'Messages not found');
+        }
+        return handleResponse(res, 200, 'Messages loaded', pruneResponse(response));
+      })
+      .catch((error) => {
+        console.log(error)
+        return handleResponse(res, 500, 'Error loading Messages');
+      });
+  }
+
+  getAllReceivedByContact(req, res) {
+    const { phoneNumber } = req.params;
+    contactService.getSReceivedMessages(phoneNumber).
+      then((response) => {
+        if (response.length === 0) {
+          return handleResponse(res, 404, 'Messages not found');
+        }
+        return handleResponse(res, 200, 'Messages loaded', pruneResponse(response));
+      })
+      .catch((error) => {
+        console.log(error)
+        return handleResponse(res, 500, 'Error loading Messages');
+      });
+  }
 };
 
 export default Contact;

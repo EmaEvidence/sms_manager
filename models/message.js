@@ -11,19 +11,11 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    sender: {
+    senderId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Sender can not be empty'
-        }
-      }
     },
-    receiver: {
+    receiverId: {
       type: DataTypes.INTEGER,
-      allowNull: true,
     },
     status: {
       type: DataTypes.STRING,
@@ -31,11 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   Message.associate = function(models) {
-    // associations can be defined here
-    // Message.hasOne(models.Contact, { foreignKey: 'id', as: 'sender' });
-    // Message.hasOne(models.Contact, { foreignKey: 'id', as: 'receiver' });
-    Message.belongsTo(models.Contact, { foreignKey: 'id', as: 'senderId' });
-    Message.belongsTo(models.Contact, { foreignKey: 'id', as: 'receiverId' });
+    Message.belongsTo(models.Contact, { foreignKey: 'senderId' }, { onDelete: 'cascade', hooks: true });
+    Message.belongsTo(models.Contact, { foreignKey: 'receiverId' }, { onDelete: 'set null', hooks: true });
   };
   return Message;
 };
