@@ -6,7 +6,8 @@
   "scripts": {
     "migration": "sequelize db:migrate:undo:all && sequelize db:migrate",
     "test": "export NODE_ENV=test && npm run migration && nyc --reporter=html --reporter=text babel-node run.js",
-    "dev": "NODE_ENV='development' nodemon --exec babel-node ./index.js"
+    "dev": "NODE_ENV='development' nodemon --exec babel-node ./index.js",
+    "start": "babel-node ./index.js"
   },
   "repository": {
     "type": "git",

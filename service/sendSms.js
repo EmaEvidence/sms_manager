@@ -6,7 +6,6 @@ dotenv.config();
 const username = process.env.SMSUSERNAME;
 const password = process.env.SMSPASSWORD;
 
-// const url = 'http://portal.bulksmsnigeria.net/api/?username=emmanuelalabi563@gmail.com&password=071963@Chm&message=';
 const url = 'http://portal.bulksmsnigeria.net/api/?username='
 
 const sendSms = (payload, done) => {
