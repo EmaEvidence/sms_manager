@@ -6,7 +6,7 @@ const devUsername = process.env.DEV_DATABASE_USERNAME;
 const devPassword = process.env.DEV_DATABASE_PASSWORD;
 const devDatabase = process.env.DEV_DATABASE_NAME;
 const testUsername = process.env.TEST_DATABASE_USERNAME;
-const testPassword = process.env.TEST_DATABASE_PASSWOR;
+const testPassword = process.env.TEST_DATABASE_PASSWORD;
 const testDatabase = process.env.TEST_DATABASE_NAME;
 
 const config = {
