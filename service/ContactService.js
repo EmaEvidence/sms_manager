@@ -14,11 +14,11 @@ class ContactService {
   }
 
   delete(data) {
-    return db.Contact.destroy({ where: data })
+    return db.Contact.destroy({ where: data });
   }
 
   edit(data) {
-    return db.Contact.findAll({ where: data })
+    return db.Contact.findAll({ where: data });
   }
 
   getSentMessages(data) {
