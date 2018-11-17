@@ -28,7 +28,7 @@ The functionality of this web app being a node.js app depends on the following t
 
 ## The API.
 The API exposes the following endpoints for consumption:  
-  1. ```POST``` /addContact. The API takes the following parameters name, phoneNumber.  
+  1. ```POST```/addContact. The API takes the following parameters name, phoneNumber.  
     Adds a new contact.  
   2. ```GET``` /getAll. Retrieves every contact in the API.
     Signs In a registered user.  
